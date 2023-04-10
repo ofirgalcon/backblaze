@@ -1,0 +1,15 @@
+type: button
+widget_id: backblaze-encrypted-button-widget
+api_url: /module/backblaze/get_list/encrypted
+i18n_title: backblaze.widget.encrypted_title
+icon: fa-shield
+listing_link: /show/listing/backblaze/backblaze
+buttons:
+  - label: "0"
+    i18n_label: off
+    class: btn-success
+    search_component: not_encrypted
+  - label: "1"
+    i18n_label: on
+    class: btn-danger
+    search_component: encrypted

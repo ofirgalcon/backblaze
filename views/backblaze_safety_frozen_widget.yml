@@ -1,0 +1,15 @@
+type: button
+widget_id: backblaze-safety_frozen-button-widget
+api_url: /module/backblaze/get_list/safety_frozen
+i18n_title: backblaze.widget.safety_frozen_title
+icon: fa-lock
+listing_link: /show/listing/backblaze/backblaze
+buttons:
+  - label: "0"
+    i18n_label: off
+    class: btn-success
+    search_component: not_safety_frozen
+  - label: "1"
+    i18n_label: on
+    class: btn-danger
+    search_component: safety_frozen

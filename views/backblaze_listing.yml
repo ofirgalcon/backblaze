@@ -1,0 +1,34 @@
+i18n_title: backblaze.listing.title
+not_null_column: bzversion
+js_link: module/backblaze/js/backblaze
+table:
+    -   column: machine.computer_name
+        i18n_header: listing.computername
+        formatter: clientDetail
+        tab_link: backblaze
+    -   column: reportdata.serial_number
+        i18n_header: serial
+    -   column: backblaze.bzversion
+        i18n_header: backblaze.column.bzversion
+    -   column: backblaze.bzlogin
+        i18n_header: backblaze.column.bzlogin
+    -   column: backblaze.bzlicense
+        i18n_header: backblaze.column.bzlicense
+    -   column: backblaze.bzlicense_status
+        i18n_header: backblaze.column.bzlicense_status
+    -   column: backblaze.safety_frozen
+        i18n_header: backblaze.column.safety_frozen
+        formatter: formatBZYesNoNice
+        filter: safety_frozen_filter
+    -   column: backblaze.lastbackupcompleted
+        i18n_header: backblaze.column.lastbackupcompleted
+        formatter: timestampToMoment
+    # -   column: backblaze.remainingnumfilesforbackup
+    #     i18n_header: backblaze.column.remainingnumfilesforbackup
+    # -   column: backblaze.remainingnumbytesforbackup
+    #     i18n_header: backblaze.column.remainingnumbytesforbackup
+    #     formatter: fileSize
+    -   column: backblaze.encrypted
+        i18n_header: backblaze.column.encrypted
+        formatter: binaryYesNo
+        filter: encrypted

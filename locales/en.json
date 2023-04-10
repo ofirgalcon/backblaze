@@ -1,0 +1,36 @@
+{
+    "column": {
+        "bzversion": "Version",
+        "bzlogin": "Login",
+        "bzlicense": "License Type",
+        "bzlicense_status": "License Status",
+        "safety_frozen": "Safety Frozen",
+        "lastbackupcompleted": "Last Backup Completed",
+        "remainingnumfilesforbackup": "Remaining Files to Backup",
+        "remainingnumbytesforbackup": "Remaining to Backup",
+        "totnumbytesforbackup": "Total for Backup",
+        "totnumfilesforbackup": "Total Files for Backup",
+        "encrypted": "Encrypted",
+        "online_hostname": "Backup Name"
+    },
+    "listing": {
+        "title": "Backblaze"
+    },
+    "report": {
+        "title": "Backblaze"
+    },
+    "title": "Backblaze",
+    "widget": {
+        "bzversion_title": "Backblaze Version",
+        "bzlogin_title": "Login",
+        "bzlicense_title": "License Type",
+        "bzlicense_status_title": "License Status",
+        "safety_frozen_title": "Safety Frozen",
+        "lastbackupcompleted_title": "Last Backup Completed",
+        "remainingnumfilesforbackup_title": "Remaining Files to Backup",
+        "remainingnumbytesforbackup_title": "Remaining to Backup",
+        "totnumbytesforbackup_title": "Total for Backup",
+        "totnumfilesforbackup_title": "Total Files for Backup",
+        "encrypted_title": "Encrypted"
+    }
+}
