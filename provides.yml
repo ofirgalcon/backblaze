@@ -21,3 +21,5 @@ widgets:
         view: backblaze_safety_frozen_widget
     backblaze_encrypted:
         view: backblaze_encrypted_widget
+    backblaze_last_backup:
+        view: backblaze_last_backup_widget

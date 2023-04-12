@@ -23,12 +23,11 @@ table:
     -   column: backblaze.lastbackupcompleted
         i18n_header: backblaze.column.lastbackupcompleted
         formatter: timestampToMoment
-    # -   column: backblaze.remainingnumfilesforbackup
-    #     i18n_header: backblaze.column.remainingnumfilesforbackup
-    # -   column: backblaze.remainingnumbytesforbackup
-    #     i18n_header: backblaze.column.remainingnumbytesforbackup
-    #     formatter: fileSize
+        filter: lastBackupFilter
     -   column: backblaze.encrypted
         i18n_header: backblaze.column.encrypted
         formatter: binaryYesNo
         filter: encrypted
+    -   column: reportdata.timestamp
+        i18n_header: listing.checkin
+        formatter: timestampToMoment

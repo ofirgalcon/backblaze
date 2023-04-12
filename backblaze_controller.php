@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * backblaze class
@@ -8,12 +8,12 @@
  **/
 class Backblaze_controller extends Module_controller
 {
-	    function __construct()
+    function __construct()
     {
         // Store module path
         $this->module_path = dirname(__FILE__);
     }
-	
+
     /**
      * Get backblaze information for serial_number
      *
@@ -23,11 +23,11 @@ class Backblaze_controller extends Module_controller
     {
         jsonView(
             Backblaze_model::select('backblaze.*')
-            ->whereSerialNumber($serial_number)
-            ->filter()
-            ->limit(1)
-            ->first()
-            ->toArray()
+                ->whereSerialNumber($serial_number)
+                ->filter()
+                ->limit(1)
+                ->first()
+                ->toArray()
         );
     }
 
@@ -43,4 +43,22 @@ class Backblaze_controller extends Module_controller
                 ->toArray()
         );
     }
-} 
+
+    /**
+     * Get last backup statistics
+     *
+     **/
+    public function getLastBackupStats()
+    {
+        $current_time = time();
+        $bzdata = Backblaze_model::selectRaw("SUM(CASE WHEN $current_time - lastbackupcompleted < 604800 THEN 1 END) AS fresh,
+    SUM(CASE WHEN $current_time - lastbackupcompleted >= 604800 AND $current_time - lastbackupcompleted < 1209600 THEN 1 END) AS oneweekplus,
+    SUM(CASE WHEN $current_time - lastbackupcompleted >= 1209600 THEN 1 END) AS twoweeksplus")
+            ->where('lastbackupcompleted', '>', 0)
+            ->filter()
+            ->first();
+
+        $obj = new View();
+        $obj->view('json', array('msg' => $bzdata));
+    }
+}

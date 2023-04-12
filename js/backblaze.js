@@ -48,3 +48,41 @@ var encrypted = function(colNumber, d){
     }
 }
 
+var lastBackupFilter = function(colNumber, d){
+
+    var currentTime = Math.floor(Date.now() / 1000);
+    if(d.search.value.match(/^lastbackupcompleted_fresh$/))
+    {
+         var thresh = (currentTime - 604800);
+        // var thresh = 1672570389;
+        
+        // Add column specific search
+         d.columns[colNumber].search.value = '> ' + (parseInt(thresh));
+        // Clear global search
+        d.search.value = '';
+    }
+
+    if (d.search.value.match(/^lastbackupcompleted_oneweekplus$/)) {
+        var thresh1 = (currentTime - 604801);
+        var thresh2 = (currentTime - 1209600);
+    
+        // Add column specific search
+        d.columns[colNumber].search.value = 'BETWEEN ' + (parseInt(thresh2)) + ' AND ' + (parseInt(thresh1));
+        // Clear global search
+        d.search.value = '';
+    }
+    
+
+
+    
+    if(d.search.value.match(/^lastbackupcompleted_twoweeksplus$/))
+    {
+         var thresh = (currentTime - 1209601);
+        
+        // Add column specific search
+         d.columns[colNumber].search.value = '< ' + (parseInt(thresh));
+        // Clear global search
+        d.search.value = '';
+    }
+
+}
