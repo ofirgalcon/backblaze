@@ -22,5 +22,6 @@ class Backblaze_model extends Eloquent
       'totnumfilesforbackup',
       'encrypted',
       'online_hostname',
+      'bztempfile_size',
     ];
 }

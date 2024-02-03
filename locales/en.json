@@ -11,7 +11,8 @@
         "totnumbytesforbackup": "Total for Backup",
         "totnumfilesforbackup": "Total Files for Backup",
         "encrypted": "Encrypted",
-        "online_hostname": "Backup Name"
+        "online_hostname": "Backup Name",
+        "bztempfile_size": "Temp File"
     },
     "listing": {
         "title": "Backblaze"
@@ -31,6 +32,7 @@
         "remainingnumbytesforbackup_title": "Remaining to Backup",
         "totnumbytesforbackup_title": "Total for Backup",
         "totnumfilesforbackup_title": "Total Files for Backup",
-        "encrypted_title": "Encrypted"
+        "encrypted_title": "Encrypted",
+        "bztempfile_size": "Temp File"
     }
 }

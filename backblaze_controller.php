@@ -21,14 +21,16 @@ class Backblaze_controller extends Module_controller
      **/
     public function get_data($serial_number = '')
     {
-        jsonView(
-            Backblaze_model::select('backblaze.*')
-                ->whereSerialNumber($serial_number)
-                ->filter()
-                ->limit(1)
-                ->first()
-                ->toArray()
-        );
+            $result = Backblaze_model::select('backblaze.*')
+            ->whereSerialNumber($serial_number)
+            ->filter()
+            ->limit(1)
+            ->first();
+        if ($result) {
+            jsonView($result->toArray());
+        } else {
+            jsonView([]);
+        }
     }
 
     public function get_list($column = '')

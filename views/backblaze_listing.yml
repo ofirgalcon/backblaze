@@ -28,6 +28,8 @@ table:
         i18n_header: backblaze.column.encrypted
         formatter: binaryYesNo
         filter: encrypted
+    -   column: backblaze.bztempfile_size
+        i18n_header: backblaze.column.bztempfile_size
     -   column: reportdata.timestamp
         i18n_header: listing.checkin
         formatter: timestampToMoment

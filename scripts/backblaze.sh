@@ -10,7 +10,7 @@ SEPARATOR=' = '
 
 # Business logic goes here
 bzpath="/Library/Backblaze.bzpkg/bzdata/bzreports"
-bzversion=`cat "$bzpath"/bzserv_version.txt` || exit 0
+bzversion=`cat "$bzpath"/bzserv_version.txt 2>/dev/null` || exit 0
 bzlogin=$(grep -o 'bzlogin="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlogin="//;s/"//')
 bzlicense=$(grep -o 'bzlicense="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlicense="//;s/"//')
 bzlicense_status=$(grep -o 'bzlicense_status="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlicense_status="//;s/"//')
@@ -22,6 +22,8 @@ totnumfilesforbackup=$(grep -o 'totnumfilesforbackup="[^"]*"' "$bzpath"/bzstat_t
 totnumbytesforbackup=$(grep -o 'totnumbytesforbackup="[^"]*"' "$bzpath"/bzstat_totalbackup.xml | sed 's/totnumbytesforbackup="//;s/"//')
 encrypted=`cat "$bzpath"/bzflag_user_has_priv_encr_key.txt`
 online_hostname=$(grep -o 'online_hostname="[^"]*"' "/Library/Backblaze.bzpkg/bzdata/bzinfo.xml" | sed 's/online_hostname="//;s/"//')
+bztempfile=`du -hd0 --si /Library/Backblaze.bzpkg`
+bztempfile_size=$(echo "$bztempfile" | cut -d$'\t' -f1)
 
 if [[ "${safety_frozen}" == "not_frozen" ]]; then
     safety_frozen_boolean=0
@@ -53,3 +55,4 @@ echo "totnumbytesforbackup${SEPARATOR}${totnumbytesforbackup}" >> ${OUTPUT_FILE}
 echo "totnumfilesforbackup${SEPARATOR}${totnumfilesforbackup}" >> ${OUTPUT_FILE}
 echo "encrypted${SEPARATOR}${encrypted_boolean}" >> ${OUTPUT_FILE}
 echo "online_hostname${SEPARATOR}${online_hostname}" >> ${OUTPUT_FILE}
+echo "bztempfile_size${SEPARATOR}${bztempfile_size}" >> ${OUTPUT_FILE}
