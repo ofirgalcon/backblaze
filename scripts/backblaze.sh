@@ -10,7 +10,7 @@ SEPARATOR=' = '
 
 # Business logic goes here
 bzpath="/Library/Backblaze.bzpkg/bzdata/bzreports"
-bzversion=`cat "$bzpath"/bzserv_version.txt 2>/dev/null` || exit 0
+bzversion=`cat "$bzpath"/bzserv_version.txt 2>/dev/null` || { touch "${OUTPUT_FILE}"; exit 0; }
 bzlogin=$(grep -o 'bzlogin="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlogin="//;s/"//')
 bzlicense=$(grep -o 'bzlicense="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlicense="//;s/"//')
 bzlicense_status=$(grep -o 'bzlicense_status="[^"]*"' "$bzpath"/bzdc_synchostinfo.xml | sed 's/bzlicense_status="//;s/"//')
