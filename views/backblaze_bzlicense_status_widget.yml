@@ -2,6 +2,7 @@ type: scrollbox
 widget_id: backblaze-bzlicense_status-scrollbox-widget
 api_url: /module/backblaze/get_list/bzlicense_status
 i18n_title: backblaze.widget.bzlicense_status_title
+i18n_tooltip: "Backblaze license status distribution. license status and count."
 icon: fa-certificate
 listing_link: /show/listing/backblaze/backblaze
 search_key: label

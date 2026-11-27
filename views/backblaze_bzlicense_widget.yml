@@ -2,6 +2,7 @@ type: scrollbox
 widget_id: backblaze-bzlicense-scrollbox-widget
 api_url: /module/backblaze/get_list/bzlicense
 i18n_title: backblaze.widget.bzlicense_title
+i18n_tooltip: "Backblaze license distribution. license type and count."
 icon: fa-key
 listing_link: /show/listing/backblaze/backblaze
 search_key: label

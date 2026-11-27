@@ -16,3 +16,5 @@ Table Schema
 * totnumfilesforbackup - bigInt 
 * totnumbytesforbackup - bigInt 
 * encrypted - BOOLEAN
+* online_hostname - VARCHAR(255) - Backup name / online hostname
+* bztempfile_size - VARCHAR(255) - Backblaze temp file size

@@ -73,8 +73,6 @@ var lastBackupFilter = function(colNumber, d){
     }
     
 
-
-    
     if(d.search.value.match(/^lastbackupcompleted_twoweeksplus$/))
     {
          var thresh = (currentTime - 1209601);

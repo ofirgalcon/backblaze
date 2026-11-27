@@ -1,19 +1,19 @@
 <div id="backblaze-tab"></div>
 <div id="lister" style="font-size: large; float: right;">
     <a href="/show/listing/backblaze/backblaze" title="List">
-        <i class="btn btn-default tab-btn fa fa-list"></i>
+        <i class="btn btn-default tab-btn fa fa-list-alt"></i>
     </a>
 </div>
 <div id="report_btn" style="font-size: large; float: right;">
     <a href="/show/report/backblaze/backblaze" title="Report">
-        <i class="btn btn-default tab-btn fa fa-th"></i>
+        <i class="btn btn-default tab-btn fa fa-bar-chart-o"></i>
     </a>
 </div>
-<h2><i class="fa fa-cloud-upload"></i> <span data-i18n="backblaze.title"></span></h2>
+<h2><?= module_icon_html('mr-backblaze-icon', '/local/backblaze_logo_sq.svg') ?> <span data-i18n="backblaze.title"></span></h2>
 
 <table id="backblaze-tab-table" style="max-width:475px;"><tbody></tbody></table>
 
-<script>
+<script nonce="<?php echo htmlspecialchars(isset($_SESSION['g_nonce']) ? $_SESSION['g_nonce'] : ''); ?>">
 $(document).on('appReady', function(){
     var table = $('#backblaze-tab-table');
     $.getJSON(appUrl + '/module/backblaze/get_data/' + serialNumber, function(data){
@@ -62,6 +62,9 @@ function fileSize(size, decimals){
 }
 
 function addThousandsSeparator(number) {
+    if (number == null || number === undefined || isNaN(number)) {
+        return '';
+    }
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 </script>

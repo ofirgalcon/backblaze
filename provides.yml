@@ -1,3 +1,5 @@
+icon: mr-backblaze-icon
+icon_mask: /local/backblaze_logo_sq.svg
 client_tabs:
     backblaze:
         view: backblaze_tab

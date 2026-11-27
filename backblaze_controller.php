@@ -35,9 +35,24 @@ class Backblaze_controller extends Module_controller
 
     public function get_list($column = '')
     {
+        // Sanitize input
+        $column = preg_replace("/[^A-Za-z0-9_\-]+/", '', $column);
+        
+        // Whitelist allowed columns to prevent column injection
+        $allowed_columns = [
+            'bzversion', 'bzlogin', 'bzlicense', 'bzlicense_status', 
+            'safety_frozen', 'lastbackupcompleted', 'remainingnumfilesforbackup',
+            'remainingnumbytesforbackup', 'totnumbytesforbackup', 'totnumfilesforbackup',
+            'encrypted', 'online_hostname', 'bztempfile_size'
+        ];
+        
+        if (!in_array($column, $allowed_columns)) {
+            jsonView([]);
+            return;
+        }
+        
         jsonView(
-            Backblaze_model::select("backblaze.$column AS label")
-                ->selectRaw('count(*) AS count')
+            Backblaze_model::selectRaw("$column AS label, count(*) AS count")
                 ->filter()
                 ->groupBy($column)
                 ->orderBy('count', 'desc')

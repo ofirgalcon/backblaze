@@ -2,6 +2,7 @@ type: scrollbox
 widget_id: backblaze-bzversion-scrollbox-widget
 api_url: /module/backblaze/get_list/bzversion
 i18n_title: backblaze.widget.bzversion_title
+i18n_tooltip: "Backblaze version distribution. version number and count."
 icon: fa-sitemap
 listing_link: /show/listing/backblaze/backblaze
 search_key: label

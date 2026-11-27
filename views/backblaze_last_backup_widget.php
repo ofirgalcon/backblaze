@@ -2,7 +2,7 @@
 
 	<div class="panel panel-default" id="backblaze-lastbackup-widget">
 
-		<div class="panel-heading" data-container="body">
+		<div class="panel-heading" data-container="body" title="Shows Backblaze last backup completion status across all clients. Green indicates recent backups (< 7 days), yellow indicates older backups (< 14 days), red indicates very old backups (14+ days).">
 
 			<h3 class="panel-title"><i class="fa fa-calendar"></i>
 			    <span data-i18n="backblaze.widget.lastbackupcompleted_title"></span>

@@ -1,5 +1,6 @@
 {
-    "name": "munkireport/backblaze",
-    "description": "Module for munkireport.",
-    "license": "MIT"
+    "name": "ofirgalcon/backblaze",
+    "description": "Backblaze module for MunkiReport.",
+    "license": "MIT",
+    "homepage": "https://github.com/ofirgalcon/backblaze"
 }
